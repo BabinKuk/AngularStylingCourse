@@ -1,0 +1,17 @@
+:host {
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 5px 5px 0 0;
+    padding: 20px;
+    widows: 300px;
+    margin: 30px;
+    text-align: center;
+}
+
+:host(.active) {
+    border: 3px solid blue;
+    color: blue;
+    font-weight: bolder;
+    padding: 18px;
+    transition: border 0.3s ease-out 0.2s, color 1s ease-in 0.5s, font-weight 0.5s ease-out 0.3s;
+}

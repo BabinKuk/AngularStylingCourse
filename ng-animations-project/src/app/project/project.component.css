@@ -1,0 +1,24 @@
+:host {
+    display: block;
+    border-radius: 3px;
+    box-shadow: 3px 3px 2px #ccc;
+    margin: 20px 0;
+    /* ne treba, dodano u trigger
+    border: 1px solid black;
+    padding: 20px;
+    transition: border-color 0.5s ease-out 0.2s;*/
+}
+
+/*select box*/
+.form-control {
+    display: inline-block;
+    width: 50%;
+}
+/* ne treba, dodano u trigger
+:host(.marked) {
+    padding: 19px;
+}
+*/
+:host(.inactive) {
+    color: #ccc;
+}

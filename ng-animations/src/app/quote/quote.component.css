@@ -1,0 +1,49 @@
+h1 {
+    color: red;
+}
+
+:host {
+    display: block;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 30px;
+}
+
+/*only for favorite class , if exists*/
+:host(.favorite) {
+    border: 2px solid red;
+    padding: 9px;
+    transition: width 0.5s ease-out 0.3s;
+    animation: moved 2s ease-out forwards;
+}
+
+/*for boring class*/
+:host-context(.boring) {
+    border: 1px solid gray;
+    color: gray;
+}
+:host-context(.boring) /deep/ h1{
+    color: gray;
+}
+/* #quote {
+    border: 1px solid black;
+    padding: 10px;
+} */
+
+@keyframes moved {
+    0% {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(100px) scale(1.2);
+    }
+    75% {
+        transform: translateX(150px) scale(1);
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateX(150px) scale(1);
+        opacity: 1;
+    }
+}

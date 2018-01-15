@@ -1,0 +1,82 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div class="container">
+  <div style="text-align:center">
+    <h1>
+      Welcome to {{title}}!
+    </h1>
+    <img width="300" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyNTAgMjUwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNTAgMjUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojREQwMDMxO30NCgkuc3Qxe2ZpbGw6I0MzMDAyRjt9DQoJLnN0MntmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTI1LDMwIDEyNSwzMCAxMjUsMzAgMzEuOSw2My4yIDQ2LjEsMTg2LjMgMTI1LDIzMCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAJIi8+DQoJPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIxMjUsMzAgMTI1LDUyLjIgMTI1LDUyLjEgMTI1LDE1My40IDEyNSwxNTMuNCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAxMjUsMzAgCSIvPg0KCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMjUsNTIuMUw2Ni44LDE4Mi42aDBoMjEuN2gwbDExLjctMjkuMmg0OS40bDExLjcsMjkuMmgwaDIxLjdoMEwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMQ0KCQlMMTI1LDUyLjF6IE0xNDIsMTM1LjRIMTA4bDE3LTQwLjlMMTQyLDEzNS40eiIvPg0KPC9nPg0KPC9zdmc+DQo=">
+  </div>
+
+  <app-goal
+    *ngFor="let goal of courseGoals"
+    [goal]="goal"
+    [ngClass]="{active: goal.isActiveGoal}"
+    (click)="goal.isActiveGoal = !goal.isActiveGoal"></app-goal>
+  <div class="interesting">
+    <app-quote
+      (click)="isFavorite = !isFavorite"
+      [ngClass]="{'favorite super-favorite': isFavorite}"
+      [ngStyle]="{'width': isFavorite ? '600px' : '300px'}"></app-quote>
+  </div>
+  <button
+    class="btn btn-primary cust-class"
+    (click)="onShowBoring(boringBlock)">Show Boring Quotes</button>
+  <div class="boring" #boringBlock style="display: none">
+    <app-quote></app-quote>
+  </div>
+
+  <div class="cust-class"
+    (click)="onClickInfo()"
+    (mousedown)="onMouseDown()"
+    [@clickedState]="clickInfo"></div>
+
+  <p class="cust-class"
+  (click)="onParagraphInfo()"
+  [@clickedState]="paragraphInfo">Bimba</p>
+
+  <hr>
+  <div class="cust-class">
+    <input type="number" (input)="numberEntered = $event.target.value">
+    <br><br>
+    <span [@numberEnteredState]="numberEntered == 0 ? 'selected' : 'unselected'">0</span>
+    <span [@numberEnteredState]="numberEntered == 1 ? 'selected' : 'unselected'">1</span>
+    <span [@numberEnteredState]="numberEntered == 2 ? 'selected' : 'unselected'">2</span>
+    <span [@numberEnteredState]="numberEntered == 3 ? 'selected' : 'unselected'">3</span>
+    <span [@numberEnteredState]="numberEntered == 4 ? 'selected' : 'unselected'">4</span>
+    <span [@numberEnteredState]="numberEntered == 5 ? 'selected' : 'unselected'">5</span>
+    <span [@numberEnteredState]="numberEntered == 6 ? 'selected' : 'unselected'">6</span>
+    <span [@numberEnteredState]="numberEntered == 7 ? 'selected' : 'unselected'">7</span>
+    <span [@numberEnteredState]="numberEntered == 8 ? 'selected' : 'unselected'">8</span>
+    <span [@numberEnteredState]="numberEntered == 9 ? 'selected' : 'unselected'">9</span>
+  </div>
+
+  <button
+    class="btn btn-primary cust-class"
+    (click)="onToggleButton()">Toggle Element</button>
+    <span class="cust-class cust-p"
+      @showState
+      *ngIf="isShown">You can see me now</span>
+
+  <br>
+  <button
+    class="btn btn-primary cust-class"
+    (click)="onShrinkButton()">Shrink Element</button>
+  <button
+    class="btn btn-primary cust-class"
+    (click)="onAnimateButton()">Animate Element</button>
+  <!--using states that are not defined-->
+  <span class="cust-class cust-p"
+    [@animateState]="animate ? 'animated' : 'notanimated'"
+    [ngStyle]="{'width.px' : width}">Animated!</span>
+
+  <br>
+  <button
+    class="btn btn-primary cust-class"
+    (click)="onAddElement()">Add Element</button>
+  <div class="cust-class cust-p"
+    @listState
+    (@listState.start)="onAnimationStarted($event)"
+    (@listState.done)="onAnimationDone($event)"
+    *ngFor="let testResult of testResults">{{testResult}}</div>
+</div>

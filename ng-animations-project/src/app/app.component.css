@@ -1,0 +1,7 @@
+.container {
+    margin-top: 30px;
+}
+
+.cust-overflow {
+  overflow: hidden; /*overflow is clipped, and the rest of the content will be invisible  */
+}
